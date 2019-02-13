@@ -4,7 +4,7 @@
 Twist order parameter
 
 Defined in 
-M. Matsumoto, T. Yagasaki, and H. Tanaka, submitted to J. Chem. Phys. (2019).
+M. Matsumoto, T. Yagasaki, and H. Tanaka, to be submitted to J. Chem. Phys. (2019).
 
 """
 __version__ = "0.1"
@@ -18,8 +18,17 @@ from collections import defaultdict
 
 def torsion3(v1,v2,v3):
     """
-    Calculate a (tripled) torsional angle as a complex.
-    O---v1-->O---v2-->O---v3-->O
+    Calculate exp 3iA where A is the torsional angle.
+
+                     .       O
+                     |     /
+                     n3  v3
+                     | /
+            O---v2---O
+          / |
+        v1  n1
+      /     |
+    O       .
 
     v1,v2,v3 must be normalized to length 1.
     """
@@ -66,11 +75,11 @@ def twist_iter(pairs, vecs):
         L = (len(vecd[i])-1)*(len(vecd[j])-1)
         if L > 0:
             sum = 0.0
-            for ni in vecd[i]:
-                if ni != j:
-                    for nj in vecd[j]:
-                        if nj != i:
-                            sum += torsion3(vecd[ni][i], vecd[i][j], vecd[j][nj])
+            for k in vecd[i]:
+                if k != j:
+                    for l in vecd[j]:
+                        if l != i:
+                            sum += torsion3(vecd[k][i], vecd[i][j], vecd[j][l])
             yield pair, sum / L
 
 

@@ -3,6 +3,8 @@ all:
 # register:
 #	./setup.py register -r yaplotlib
 # edit ~/.pypirc
+test:
+	./twist_op.py
 check:
 	./setup.py check
 install: check
