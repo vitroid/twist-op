@@ -4,3 +4,6 @@ dist/
 twist_op.egg-info/
 *.mp4
 *.mov
+Jupyter/*.png
+Jupyter/*.svg
+Jupyter/.ipynb_checkpoints/
