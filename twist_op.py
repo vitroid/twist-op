@@ -4,7 +4,7 @@
 Twist order parameter
 
 Defined in 
-M. Matsumoto, T. Yagasaki, and H. Tanaka, to be submitted to J. Chem. Phys. (2019).
+M. Matsumoto, T. Yagasaki, and H. Tanaka, submitted to J. Chem. Phys. (2019).
 
 """
 __version__ = "0.1"
